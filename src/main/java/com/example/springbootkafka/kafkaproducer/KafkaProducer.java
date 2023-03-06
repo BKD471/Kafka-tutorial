@@ -15,9 +15,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaProducer{
     @Value("${spring.kafka.topic.name}")
-    private String topicName="Phoenix";
-    private static final Logger LOGGER= (Logger) LoggerFactory.getLogger(KafkaProducer.class);
+    private String topicName;
 
+    // <Key,Value> both are strings
     private KafkaTemplate<String, String> kafkaTemplate;
 
     public KafkaProducer(KafkaTemplate<String, String> kafkaTemplate) {

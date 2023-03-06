@@ -6,14 +6,26 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.TopicBuilder;
 
+
+//Component where we create kafka topics
 @Configuration
 public class KafkaTopicConfig {
 
     @Value("${spring.kafka.topic.name}")
-    private String topicName="Phoenix";
+    private String topicName;
 
+    @Value("${spring.kafka.topic-json.name}")
+    private String jsonTopicName;
+
+    //For consuming  type String messages
     @Bean
     public NewTopic createTopic(){
         return TopicBuilder.name(topicName).build();
+    }
+
+    //For consuming type Json messages
+    @Bean
+    public NewTopic createJsonTopic(){
+        return TopicBuilder.name(jsonTopicName).build();
     }
 }

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class JsonKafkaProducer {
-    @Value("${spring.kafka.topic.name}")
+    @Value("${spring.kafka.topic-json.name}")
     private String topicName;
 
     private KafkaTemplate<String, User> kafkaTemplate;
